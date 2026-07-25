@@ -1,0 +1,12 @@
+{
+  "name": "message-kit-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:cli": "bun run packages/cli/src/index.ts"
+  }
+}
