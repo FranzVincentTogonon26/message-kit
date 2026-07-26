@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { Command } from "commander";
 
-import { sendTelegramMessage } from "sendkit-core";
+import { sendTelegramMessage } from "@franzvincenttogonon-dev/message-kit-core";
 
 const program = new Command();
 const configPath = join(homedir(), ".config", "mcp", "config.json");
@@ -14,9 +14,13 @@ const cliConfigSchema = z.object({
 
 function writeTelegramBotToken(token: string) {
   mkdirSync(dirname(configPath), { recursive: true });
-  writeFileSync(configPath, `${JSON.stringify({ telegramBotToken: token }, null, 2)}\n`, {
-    mode: 0o600,
-  });
+  writeFileSync(
+    configPath,
+    `${JSON.stringify({ telegramBotToken: token }, null, 2)}\n`,
+    {
+      mode: 0o600,
+    },
+  );
 }
 
 function getTelegramBotToken() {
@@ -24,7 +28,9 @@ function getTelegramBotToken() {
     throw new Error("Telegram bot token is required. Run `sendkit init`.");
   }
 
-  const config = cliConfigSchema.parse(JSON.parse(readFileSync(configPath, "utf8")));
+  const config = cliConfigSchema.parse(
+    JSON.parse(readFileSync(configPath, "utf8")),
+  );
   const token = config.telegramBotToken;
 
   if (!token) {

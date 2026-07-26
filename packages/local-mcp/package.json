@@ -1,14 +1,17 @@
 {
-  "name": "sendkit-local-mcp",
+  "name": "@franzvincenttogonon-dev/message-kit-local-mcp",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "sendkit-core": "workspace:*",
+    "@franzvincenttogonon-dev/message-kit-core": "workspace:*",
     "zod": "^4.4.3"
   }
 }

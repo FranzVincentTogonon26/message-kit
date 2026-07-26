@@ -1,11 +1,14 @@
 {
-  "name": "message-kit",
+  "name": "@franzvincenttogonon-dev/message-kit-cli",
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "tsdown"
+  },
   "dependencies": {
     "commander": "^15.0.0",
-    "sendkit-core": "workspace:*",
+    "@franzvincenttogonon-dev/message-kit-core": "workspace:*",
     "zod": "^4.4.3"
   }
 }

@@ -19,13 +19,16 @@ export async function sendTelegramMessage(
   //   To get Telegram id:
   // https://api.telegram.org/bot${token}/getUpdates
 
-  const response = await fetch(`https://api.telegram.org/bot${parsedInput.botToken}/sendMessage`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `https://api.telegram.org/bot${parsedInput.botToken}/sendMessage`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: await Response.json(requestBody).text(),
     },
-    body: await Response.json(requestBody).text(),
-  });
+  );
 
   const data = telegramSendMessageResponseSchema.parse(await response.json());
   if (!response.ok || !data.ok || !data.result) {
