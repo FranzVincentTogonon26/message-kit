@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { z } from "zod";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
